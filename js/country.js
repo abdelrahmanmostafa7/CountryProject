@@ -3,6 +3,10 @@ const params = new URLSearchParams(window.location.search);
 const countryCode = params.get("code");
 let countriesData = [];
 
+ function goHome() {
+   window.location.href = "app.html"; // or index.html depending on your file name
+ }
+ 
 async function fetchCountry() {
   const res = await fetch("data.json");
   countriesData = await res.json();
@@ -24,7 +28,7 @@ async function fetchCountry() {
       })
       .join("") || "No borders";
 
- countryDetails.innerHTML = `
+  countryDetails.innerHTML = `
     <img src="${country.flags.svg}" alt="${country.name}">
     <div class="info">
         <h2>${country.name}</h2>

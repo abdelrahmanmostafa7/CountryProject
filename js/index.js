@@ -35,7 +35,7 @@ function viewCountry(code) {
 
 // Search
 searchInput.addEventListener("input", (e) => {
-  const value = e.target.value.toLowerCase();
+  const value = (e.target.value || "").trim().toLowerCase();
   const filtered = countriesData.filter((c) =>
     c.name.toLowerCase().includes(value)
   );
